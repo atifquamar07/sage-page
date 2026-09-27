@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <meta name="title" content="Self-Adapting Group of Experts for Multi-Agent Reasoning">
+  <meta name="description" content="SAGE is a training-free multi-agent framework that transfers a donor agent's reasoning strategy into its teammates' prompts and collaborates over a sparse DAG.">
+  <meta name="keywords" content="multi-agent systems, LLM agents, multi-agent reasoning, prompt adaptation, training-free, SAGE">
+  <meta name="author" content="Mohammad Atif Quamar, Nurbek Tastan, Karthik Nandakumar, Junpei Komiyama">
+  <meta name="robots" content="index, follow">
+
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="Self-Adapting Group of Experts for Multi-Agent Reasoning">
+  <meta property="og:description" content="A training-free multi-agent framework that transfers a donor agent's reasoning strategy into its teammates' prompts and collaborates over a sparse DAG.">
+  <meta property="og:url" content="https://www.atifquamar.com/sage-page/">
+  <meta property="og:image" content="https://www.atifquamar.com/sage-page/static/images/social_preview.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Self-Adapting Group of Experts for Multi-Agent Reasoning">
+  <meta name="twitter:image" content="https://www.atifquamar.com/sage-page/static/images/social_preview.png">
+
+  <meta name="citation_title" content="Self-Adapting Group of Experts for Multi-Agent Reasoning">
+  <meta name="citation_author" content="Quamar, Mohammad Atif">
+  <meta name="citation_author" content="Tastan, Nurbek">
+  <meta name="citation_author" content="Nandakumar, Karthik">
+  <meta name="citation_author" content="Komiyama, Junpei">
+  <meta name="citation_publication_date" content="2026">
+  <meta name="citation_pdf_url" content="https://www.atifquamar.com/sage-page/static/pdfs/sage_paper.pdf">
+
+  <title>Self-Adapting Group of Experts for Multi-Agent Reasoning</title>
+
+  <link rel="icon" type="image/svg+xml" href="static/images/favicon.svg">
+  <link rel="icon" type="image/png" sizes="64x64" href="static/images/favicon.png">
+  <link rel="apple-touch-icon" href="static/images/apple-touch-icon.png">
+
+  <link rel="stylesheet" href="static/css/bulma.min.css">
+  <link rel="stylesheet" href="static/css/index.css">
+  <link rel="stylesheet" href="static/css/sage.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <script defer src="static/js/fontawesome.all.min.js"></script>
+  <script defer src="static/js/index.js"></script>
+  <script defer src="static/js/sage-method.js"></script>
+</head>
+<body>
+
+  <button class="scroll-to-top" onclick="scrollToTop()" title="Scroll to top" aria-label="Scroll to top">
+    <i class="fas fa-chevron-up"></i>
+  </button>
+
+  <main id="main-content">
+  <section class="hero publication-header">
+    <div class="hero-body">
+      <div class="container is-max-desktop">
+        <div class="columns is-centered">
+          <div class="column has-text-centered">
+            <h1 class="title is-1 publication-title">Self-Adapting Group of Experts for<br>Multi-Agent Reasoning</h1>
+            <div class="is-size-5 publication-authors">
+              <span class="author-block">
+                <a href="https://www.atifquamar.com/" target="_blank">Mohammad Atif Quamar</a><sup>1</sup>,</span>
+              <span class="author-block">
+                <a href="https://tnurbek.github.io/" target="_blank">Nurbek Tastan</a><sup>1</sup>,</span>
+              <span class="author-block">
+                <a href="https://www.cse.msu.edu/~nandakum/" target="_blank">Karthik Nandakumar</a><sup>1,2</sup>,</span>
+              <span class="author-block">
+                <a href="https://jkomiyama.github.io/" target="_blank">Junpei Komiyama</a><sup>1,3</sup>
+              </span>
+            </div>
+            <div class="is-size-5 publication-authors">
+              <span class="author-block">
+                <sup>1</sup>MBZUAI &nbsp;
+                <sup>2</sup>Michigan State University &nbsp;
+                <sup>3</sup>RIKEN AIP
+              </span>
+            </div>
+            <div class="column has-text-centered">
+              <div class="publication-links">
+                <!-- TODO: Replace ARXIV_ID with the arXiv id -->
+                <span class="link-block">
+                  <a href="https://arxiv.org/abs/ARXIV_ID" target="_blank"
+                     class="external-link button is-normal is-rounded is-dark">
+                    <span class="icon"><i class="ai ai-arxiv"></i></span>
+                    <span>arXiv</span>
+                  </a>
+                </span>
+                <span class="link-block">
+                  <a href="https://github.com/atifquamar07/sage" target="_blank"
+                     class="external-link button is-normal is-rounded is-dark">
+                    <span class="icon"><i class="fab fa-github"></i></span>
+                    <span>Code</span>
+                  </a>
+                </span>
+              </div>
+              <!-- TODO: Uncomment once accepted
+              <div class="acceptance-news" role="status">
+                <span class="acceptance-news-label">News</span>
+                <span class="acceptance-news-text">Accepted to VENUE</span>
+              </div>
+              -->
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered has-text-centered">
+        <div class="column is-four-fifths">
+          <h2 class="title is-3">Abstract</h2>
+          <div class="content has-text-justified">
+            <p>
+              Multi-agent systems bring together language model agents with different roles to propose, review, and refine solutions. Each agent's response depends on its model's capabilities, the reasoning strategy defined by its system prompt, and the information in its input context. Existing frameworks often adapt communication by changing this context while leaving individual prompts fixed, even when a problem calls for different skills. We study whether agents' initial responses can identify a strategy better suited to the current problem and guide its transfer to other agents. To address this, we introduce <strong>SAGE</strong> (<strong>S</strong>elf-<strong>A</strong>dapting <strong>G</strong>roup of <strong>E</strong>xperts), a training-free framework that uses answer agreement, prefix consistency, and reciprocal peer review to select a <strong>strategy donor</strong>. SAGE transfers the selected donor's reasoning strategy to the other agents while preserving their original roles. This transfer uses only the agents' original system prompts, without access to the problem or generated solutions. After strategy adaptation, agents exchange responses through a dynamic, sparse directed acyclic graph that routes information from higher-scoring agents to lower-scoring agents. Experiments across multiple agent backbones and reasoning benchmarks show that SAGE achieves higher average accuracy than the evaluated baselines.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section sage-block">
+    <p class="section-lede">Most multi-agent systems change what agents read. SAGE also changes how they reason.</p>
+    <h2 class="title is-3 has-text-centered">Pick a donor, share its strategy, then collaborate.</h2>
+    <div class="sa" id="sage-anim">
+      <div class="sa-stages" role="group" aria-label="Method stages">
+        <button type="button" class="sa-stage" style="--c:#3e64c8"><span class="n">1</span>Select a donor</button>
+        <button type="button" class="sa-stage" style="--c:#b24c98"><span class="n">2</span>Transfer strategy</button>
+        <button type="button" class="sa-stage" style="--c:#1e9474"><span class="n">3</span>Collaborate</button>
+        <button type="button" class="sa-stage" style="--c:#db7f1c"><span class="n">4</span>Pool &amp; vote</button>
+      </div>
+      <p class="sa-caption" aria-live="polite"></p>
+      <div class="sa-canvas" aria-hidden="true"></div>
+      <div class="sa-controls">
+        <button type="button" class="sa-replay" aria-label="Replay animation">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 12a9 9 0 1 0 3.5-7.13"/><polyline points="3 4 3 10 9 10"/></svg>
+          Replay
+        </button>
+      </div>
+      <!-- Shown until the animation script runs, and if it cannot. -->
+      <figure class="sage-figure sa-fallback">
+        <img src="static/images/sage_method_overview.svg" width="1659" height="710"
+             alt="Overview of SAGE in four panels. 1, Select a donor: four agents answer the query, each answer is scored by agreement plus prefix consistency, and peer review selects agent A as donor. 2, Transfer strategy: the donor's system prompt guides rewrites of the other agents' prompts, which keep their own roles; the rewriter sees prompts only. 3, Collaborate: over T rounds, agents revise along a sparse DAG from higher- to lower-scoring agents, and the DAG is rebuilt after each round. 4, Pool and vote: a weighted vote over initial answers, reviews and round answers, with stage leaders weighted 1.5, selects the final answer.">
+      </figure>
+    </div>
+    <p class="sage-foot">Illustrative run with N = 4 agents and at most K = 2 parents per agent. SAGE allows up to T = 3 rounds; this run stops after two. Training-free, no external judge. <a href="static/images/sage_method_overview.svg" target="_blank">Static figure</a></p>
+  </section>
+
+  <section class="section sage-block">
+    <p class="section-lede">The rewriter never sees the question.</p>
+    <h2 class="title is-3 has-text-centered">A borrowed habit still fixes the mistake.</h2>
+
+    <div class="sage-problem">
+      <div class="problem-meta">MMLU &middot; Ministral-3-3B <span class="gold-chip">answer = D</span></div>
+      <div class="problem-text">
+        Select the best translation into predicate logic: <em>Kevin is introduced to José by Wilma.</em>
+        (<i>j</i>: José, <i>k</i>: Kevin, <i>w</i>: Wilma, <i>Ixyz</i>: <i>x</i> introduces <i>y</i> to <i>z</i>)
+        <span class="options"><span>(A) Iwjk</span><span>(B) Ijkw</span><span>(C) Ikjw</span><span class="is-gold">(D) Iwkj</span></span>
+      </div>
+    </div>
+
+    <div class="sage-prompts">
+      <div class="prompt-card">
+        <div class="prompt-head">AlgebraicSolver, original prompt</div>
+        <pre class="prompt">You are an expert in algebraic problem solving.
+<span class="elided">[specialty paragraph, unchanged]</span>
+
+When solving, prioritize:
+
+1. Defining variables clearly
+2. Creating equations from the problem statement
+3. Solving equations step by step
+4. Simplifying expressions carefully
+5. Checking that the solution satisfies the original conditions</pre>
+      </div>
+      <div class="prompt-card is-rewritten">
+        <div class="prompt-head">Rewritten with donor SkepticalVerificationSolver</div>
+        <pre class="prompt">You are an expert in algebraic problem solving.
+<span class="elided">[specialty paragraph, unchanged]</span>
+
+When solving, prioritize:
+1. Defining variables clearly<mark> and ensuring they align with the problem's constraints.</mark>
+2. <mark>Forming equations that accurately represent the relationships described.</mark>
+3. Solving equations step-by-step<mark> with explicit intermediate calculations.</mark>
+4. Simplifying expressions <mark>methodically to avoid hidden errors.</mark>
+5. <mark>Verifying each step for consistency and</mark> checking the final answer against original conditions.
+
+<mark>**General habits to adopt:**
+- <strong>Double-check variable assignments for logical consistency.</strong>
+- Validate each equation's validity before proceeding.
+- Test edge cases or boundary conditions where applicable.
+- Compare intermediate results with expected outcomes to detect discrepancies.
+- Present solutions with clear, numbered steps and explicit reasoning.</mark></pre>
+      </div>
+    </div>
+
+    <ol class="sage-steps">
+      <li><span class="step-k">Initial answers</span> A &middot; <b class="ok">D</b> &middot; C &middot; C</li>
+      <li><span class="step-k">Rewritten AlgebraicSolver</span> A &rarr; <b class="ok">D</b></li>
+      <li><span class="step-k">Pooled vote</span> <b class="ok">D 12.0</b> vs C 8.5</li>
+    </ol>
+    <p class="sage-foot">Without rewriting, the same run answers C. Prompts are from the paper's appendix; highlights mark text added or reworded by the rewrite.</p>
+  </section>
+
+  <section class="section sage-block">
+    <h2 class="title is-3 has-text-centered">SAGE has the best average accuracy on both backbones.</h2>
+    <div class="table-card">
+      <div class="table-scroll" tabindex="0" role="region" aria-label="Main results table, scrollable">
+        <table class="results-table">
+          <caption class="sr-only">Accuracy (%) of SAGE and baselines on six benchmarks, mean ± sample standard deviation over three runs</caption>
+          <thead>
+            <tr><th scope="col">Method</th><th scope="col">MATH</th><th scope="col">GSM8K</th><th scope="col">AQuA</th><th scope="col">GSM-H</th><th scope="col">MMLU</th><th scope="col">GPQA</th><th scope="col">AVG</th></tr>
+          </thead>
+          <tbody>
+            <tr class="group-row"><th colspan="8" scope="colgroup">Qwen2.5-1.5B-Instruct</th></tr>
+            <tr><th scope="row">Single</th><td>72.07<span class="sd">±2.00</span></td><td>69.80<span class="sd">±0.72</span></td><td>61.80<span class="sd">±1.73</span></td><td>34.27<span class="sd">±0.50</span></td><td class="is-best">54.93<span class="sd">±0.12</span></td><td class="is-second">28.96<span class="sd">±2.78</span></td><td class="is-second">53.64</td></tr>
+            <tr><th scope="row">CoT</th><td>70.00<span class="sd">±0.72</span></td><td>71.40<span class="sd">±2.23</span></td><td>59.20<span class="sd">±0.92</span></td><td>31.80<span class="sd">±0.40</span></td><td>52.87<span class="sd">±1.10</span></td><td>28.11<span class="sd">±3.21</span></td><td>52.23</td></tr>
+            <tr><th scope="row">MOC</th><td>70.20<span class="sd">±1.25</span></td><td>71.20<span class="sd">±0.92</span></td><td>44.67<span class="sd">±0.83</span></td><td>34.27<span class="sd">±1.22</span></td><td>50.20<span class="sd">±1.73</span></td><td>26.94<span class="sd">±2.04</span></td><td>49.58</td></tr>
+            <tr><th scope="row">MAD-M<sup>2</sup></th><td>72.00<span class="sd">±2.42</span></td><td class="is-second">73.80<span class="sd">±0.80</span></td><td>62.33<span class="sd">±0.61</span></td><td class="is-second">34.80<span class="sd">±0.53</span></td><td>52.20<span class="sd">±1.04</span></td><td>25.25<span class="sd">±2.67</span></td><td>53.40</td></tr>
+            <tr><th scope="row">G-Designer</th><td>71.93<span class="sd">±0.12</span></td><td>72.47<span class="sd">±0.64</span></td><td>60.13<span class="sd">±1.80</span></td><td>34.13<span class="sd">±0.95</span></td><td>52.67<span class="sd">±1.22</span></td><td>27.78<span class="sd">±5.13</span></td><td>53.19</td></tr>
+            <tr><th scope="row">SelfOrg</th><td class="is-second">72.87<span class="sd">±1.30</span></td><td>71.53<span class="sd">±1.75</span></td><td class="is-second">62.53<span class="sd">±1.30</span></td><td>34.00<span class="sd">±1.40</span></td><td>49.87<span class="sd">±2.04</span></td><td>27.95<span class="sd">±1.17</span></td><td>53.12</td></tr>
+            <tr class="is-sage"><th scope="row">SAGE</th><td class="is-best">78.47<span class="sd">±1.01</span></td><td class="is-best">77.33<span class="sd">±1.17</span></td><td class="is-best">69.07<span class="sd">±0.64</span></td><td class="is-best">39.00<span class="sd">±1.06</span></td><td class="is-second">54.33<span class="sd">±1.63</span></td><td class="is-best">31.65<span class="sd">±3.04</span></td><td class="is-best">58.31</td></tr>
+            <tr class="group-row"><th colspan="8" scope="colgroup">Ministral-3-3B-Instruct-2512</th></tr>
+            <tr><th scope="row">Single</th><td>89.93<span class="sd">±0.12</span></td><td>90.53<span class="sd">±0.58</span></td><td>72.13<span class="sd">±1.22</span></td><td>45.13<span class="sd">±0.31</span></td><td>71.00<span class="sd">±1.39</span></td><td>36.53<span class="sd">±4.58</span></td><td>67.54</td></tr>
+            <tr><th scope="row">CoT</th><td>89.47<span class="sd">±1.63</span></td><td>90.93<span class="sd">±1.03</span></td><td>74.27<span class="sd">±2.39</span></td><td>46.73<span class="sd">±0.90</span></td><td>72.13<span class="sd">±0.23</span></td><td>36.03<span class="sd">±2.54</span></td><td>68.26</td></tr>
+            <tr><th scope="row">MOC</th><td>91.20<span class="sd">±0.53</span></td><td>90.73<span class="sd">±0.61</span></td><td>85.40<span class="sd">±1.06</span></td><td>51.53<span class="sd">±0.81</span></td><td>71.80<span class="sd">±0.72</span></td><td>44.44<span class="sd">±2.81</span></td><td>72.52</td></tr>
+            <tr><th scope="row">MAD-M<sup>2</sup></th><td>91.53<span class="sd">±0.42</span></td><td class="is-second">92.13<span class="sd">±0.31</span></td><td>85.47<span class="sd">±0.81</span></td><td class="is-second">51.93<span class="sd">±0.42</span></td><td class="is-second">73.67<span class="sd">±1.33</span></td><td class="is-best">47.98<span class="sd">±2.81</span></td><td class="is-second">73.79</td></tr>
+            <tr><th scope="row">G-Designer</th><td class="is-second">95.27<span class="sd">±0.64</span></td><td>91.40<span class="sd">±0.60</span></td><td>81.67<span class="sd">±1.36</span></td><td>51.80<span class="sd">±0.92</span></td><td>71.00<span class="sd">±1.71</span></td><td class="is-second">47.64<span class="sd">±1.46</span></td><td>73.13</td></tr>
+            <tr><th scope="row">SelfOrg</th><td class="is-second">95.27<span class="sd">±0.12</span></td><td>90.80<span class="sd">±0.72</span></td><td class="is-second">86.47<span class="sd">±0.31</span></td><td>48.47<span class="sd">±0.61</span></td><td>73.47<span class="sd">±0.31</span></td><td>43.94<span class="sd">±0.87</span></td><td>73.07</td></tr>
+            <tr class="is-sage"><th scope="row">SAGE</th><td class="is-best">95.93<span class="sd">±0.12</span></td><td class="is-best">93.07<span class="sd">±0.50</span></td><td class="is-best">87.93<span class="sd">±0.23</span></td><td class="is-best">53.53<span class="sd">±1.21</span></td><td class="is-best">75.73<span class="sd">±0.50</span></td><td>44.28<span class="sd">±3.25</span></td><td class="is-best">75.08</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="BibTeX">
+    <div class="container is-max-desktop content">
+      <div class="bibtex-header">
+        <h2 class="title">BibTeX</h2>
+        <button class="copy-bibtex-btn" onclick="copyBibTeX()" title="Copy BibTeX to clipboard">
+          <i class="fas fa-copy"></i>
+          <span class="copy-text">Copy</span>
+        </button>
+      </div>
+      <!-- TODO: Add the venue or arXiv id once available -->
+      <pre id="bibtex-code"><code>@misc{quamar2026sage,
+  title={Self-Adapting Group of Experts for Multi-Agent Reasoning},
+  author={Mohammad Atif Quamar and Nurbek Tastan and Karthik Nandakumar and Junpei Komiyama},
+  year={2026},
+  note={Under review},
+}</code></pre>
+    </div>
+  </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="columns is-centered">
+        <div class="column is-8">
+          <div class="content">
+            <p>
+              Built on the <a href="https://github.com/eliahuhorwitz/Academic-project-page-template" target="_blank">Academic Project Page Template</a>, adapted from <a href="https://nerfies.github.io" target="_blank">Nerfies</a>. Licensed under <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/" target="_blank">CC BY-SA 4.0</a>.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>
